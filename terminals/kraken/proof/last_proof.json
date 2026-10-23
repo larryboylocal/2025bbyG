@@ -1,0 +1,81 @@
+{
+  "input": {
+    "source": "https://futures.kraken.com/api/charts/v1/trade/PF_XBTUSD/1m",
+    "symbol": "PF_XBTUSD",
+    "resolution": "1m",
+    "candle_count": 240,
+    "first_bar_time": 1792778220000,
+    "last_bar_time": 1792792560000
+  },
+  "pandas": {
+    "version": "2.3.3",
+    "file": "/workspace/.venv/lib/python3.12/site-packages/pandas/__init__.py",
+    "feature_rows": 240,
+    "feature_columns": [
+      "atr",
+      "ema_diff",
+      "rsi",
+      "roc",
+      "spread"
+    ],
+    "non_null_atr": 227,
+    "non_null_rsi": 226,
+    "cache_len": 240
+  },
+  "labels": {
+    "rows": 239,
+    "counts": {
+      "buy": 120,
+      "sell": 119
+    }
+  },
+  "signals": {
+    "count": 226,
+    "schema_valid": true,
+    "schema": "fxjefe.kraken.futures.v1",
+    "last": {
+      "schema": "fxjefe.kraken.futures.v1",
+      "symbol": "PF_XBTUSD",
+      "side": "sell",
+      "orderType": "mkt",
+      "size_mode": "full_margin",
+      "timeframe": "1m",
+      "reduceOnly": false,
+      "bar_time": 1792792560000,
+      "confidence": 0.01
+    }
+  },
+  "rate_limit": {
+    "tier": {
+      "tier": "low_volatility",
+      "reason": "default_low"
+    },
+    "snapshot": {
+      "tier": "low_volatility",
+      "tier_reason": "default_low",
+      "system_max_cost": 500,
+      "window_sec": 10.0,
+      "ceiling_cost": 330.0,
+      "used_cost": 0,
+      "remaining_cost": 330.0,
+      "fraction_of_system_max": 0.0,
+      "fraction_of_tier_ceiling": 0.0,
+      "backoff_active": false,
+      "public_calls": 1,
+      "blocked_calls": 0,
+      "low_fraction": 0.66,
+      "high_fraction": 0.8888
+    }
+  },
+  "live_flags": {
+    "trading_enabled": true,
+    "allow_live_trades": true,
+    "live_trading": true,
+    "paper_fills": false
+  },
+  "outcome": {
+    "order_sent": false,
+    "api_key_present": false,
+    "reason": "pipeline proof does not transmit an order"
+  }
+}

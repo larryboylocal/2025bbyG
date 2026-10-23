@@ -1,0 +1,27 @@
+FXJEFE Kraken backbone
+
+This directory is the boot copy of the Kraken futures runtime.
+It carries the terminal sources, compiled .pyc files, and the wheels in wheels/.
+Kraken live flags are on. Binance and MetaTrader 5 stay off.
+No API secret is stored here.
+
+Check without sending an order:
+
+  ./launch.sh --self-check
+
+Install so it returns on boot:
+
+  sudo ./install-boot.sh
+
+The unit runs:
+
+  /opt/fxjefe-backbone/.venv/bin/python -m terminals.kraken.kraken_runtime
+
+Put the key and secret in /opt/fxjefe-backbone/kraken.env:
+
+  KRAKEN_FUTURES_API_KEY=
+  KRAKEN_FUTURES_API_SECRET=
+
+Without those variables the process serves /health and does not send an order.
+Rate ceilings stay 66 percent of the 500-cost budget in low volatility
+and 88.88 percent in high volatility.

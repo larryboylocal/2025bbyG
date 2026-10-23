@@ -1,0 +1,10 @@
+{
+  "terminal": "binance",
+  "schema": "fxjefe.binance.v1",
+  "trading_enabled": false,
+  "allow_live_trades": false,
+  "live_trading": false,
+  "paper_fills": false,
+  "runtime_host": "127.0.0.1",
+  "runtime_port": 8180
+}

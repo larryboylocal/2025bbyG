@@ -1,0 +1,59 @@
+{
+  "terminal": "kraken",
+  "schema": "fxjefe.kraken.futures.v1",
+  "trading_enabled": true,
+  "allow_live_trades": true,
+  "live_trading": true,
+  "paper_fills": false,
+  "environment": "live",
+  "rest_base": "https://futures.kraken.com",
+  "websocket_url": "wss://futures.kraken.com/ws/v1",
+  "runtime_host": "127.0.0.1",
+  "runtime_port": 8080,
+  "bar_resolution": "1m",
+  "symbols": ["PF_XBTUSD", "PF_ETHUSD", "PF_SOLUSD", "PF_XRPUSD"],
+  "preferred_instrument_prefix": "PF_",
+  "quote_currency": "USD",
+  "account_quote": 40,
+  "sacrifice_cap_quote": 40,
+  "frequency_mode": "flip_every_closed_bar",
+  "maximize_trade_count": true,
+  "allow_hold": false,
+  "sizing": "full_margin",
+  "order_type": "mkt",
+  "eval": {
+    "profit_target_pct": 9.0,
+    "max_daily_loss_pct": 3.0,
+    "max_drawdown_pct": 3.0,
+    "flatten_on_daily_loss": true,
+    "flatten_on_drawdown": true,
+    "flatten_on_profit_target": false,
+    "dd_auto_close": true,
+    "enable_dd_guard": true,
+    "max_drawdown_percent": 3.0
+  },
+  "rate_limit": {
+    "system_max_cost": 500,
+    "window_sec": 10,
+    "tiers": {
+      "low_volatility": {
+        "max_fraction_of_system_max": 0.66
+      },
+      "high_volatility": {
+        "max_fraction_of_system_max": 0.8888
+      }
+    },
+    "volatility": {
+      "atr_period": 14,
+      "lookback_bars": 48,
+      "high_when_atr_pct_gte": 0.0015,
+      "high_when_atr_over_median_gte": 1.25,
+      "low_volume_fraction_of_median": 0.8,
+      "quiet_hours_utc": [0, 1, 2, 3, 4, 5, 6]
+    },
+    "backoff": {
+      "api_limit_exceeded_sec": 10,
+      "retry_once": true
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+!backbone/**/*.pyc
+.pytest_cache/
+.env
+*.env
+terminals/kraken/state/
+terminals/binance/state/
+terminals/mt5/state/

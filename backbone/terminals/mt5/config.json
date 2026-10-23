@@ -1,0 +1,12 @@
+{
+  "terminal": "mt5",
+  "schema": "fxjefe.saturn.v1",
+  "trading_enabled": false,
+  "allow_live_trades": false,
+  "live_trading": false,
+  "paper_fills": false,
+  "broker": "vantage",
+  "runtime_host": "127.0.0.1",
+  "runtime_port": 8280,
+  "timeframe": "M15"
+}
