@@ -1,0 +1,16 @@
+[Unit]
+Description=FXJEFE Kraken futures backbone
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/fxjefe-backbone
+Environment=PYTHONPATH=/opt/fxjefe-backbone
+EnvironmentFile=-/opt/fxjefe-backbone/kraken.env
+ExecStart=/opt/fxjefe-backbone/.venv/bin/python -m terminals.kraken.kraken_runtime
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
