@@ -48,5 +48,23 @@ def features_from_candles(candles: list[dict], cache: RingCache | None = None) -
     frame["rsi"] = 100 - (100 / (1 + relative))
     frame["roc"] = close.pct_change(5)
     frame["spread"] = (high - low) / close.where(close != 0)
+    frame["ema9"] = close.ewm(span=9, adjust=False).mean()
+    frame["ema21"] = ema_slow
+    frame["ema50"] = close.ewm(span=50, adjust=False).mean()
+    frame["ema200"] = close.ewm(span=200, adjust=False).mean()
+    up_move = high.diff()
+    down_move = -low.diff()
+    plus_dm = up_move.where((up_move > down_move) & (up_move > 0), 0.0)
+    minus_dm = down_move.where((down_move > up_move) & (down_move > 0), 0.0)
+    plus_di = 100 * plus_dm.rolling(14, min_periods=14).mean() / frame["atr"].where(frame["atr"] != 0)
+    minus_di = 100 * minus_dm.rolling(14, min_periods=14).mean() / frame["atr"].where(frame["atr"] != 0)
+    directional = (plus_di - minus_di).abs() / (plus_di + minus_di).where((plus_di + minus_di) != 0)
+    frame["adx"] = (100 * directional).rolling(14, min_periods=14).mean()
+    trending = (frame["adx"] > 25) & (frame["atr"] > frame["atr"].rolling(14, min_periods=14).mean())
+    ranging = frame["adx"] < 20
+    frame["regime"] = 0
+    frame.loc[trending.fillna(False), "regime"] = 1
+    frame.loc[ranging.fillna(False) & ~trending.fillna(False), "regime"] = 0
+    frame.loc[~trending.fillna(False) & ~ranging.fillna(False), "regime"] = -1
     frame.attrs["cache_len"] = len(store)
     return frame

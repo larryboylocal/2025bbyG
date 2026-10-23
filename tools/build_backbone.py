@@ -25,7 +25,7 @@ def build() -> None:
     if DEST.exists():
         shutil.rmtree(DEST)
     DEST.mkdir()
-    for name in ("shared", "terminals", "tests", "wheels", "requirements.txt", "README.md"):
+    for name in ("shared", "terminals", "tests", "wheels", "coordinator", "requirements.txt", "README.md"):
         source = ROOT / name
         target = DEST / name
         if source.is_dir():
@@ -40,6 +40,7 @@ def build() -> None:
         (DEST / name).write_bytes(payload)
     compileall.compile_dir(str(DEST / "terminals"), quiet=1, legacy=True)
     compileall.compile_dir(str(DEST / "shared"), quiet=1, legacy=True)
+    compileall.compile_dir(str(DEST / "coordinator"), quiet=1, legacy=True)
     (DEST / "READY").write_text("verified\n", encoding="utf-8")
     print(f"backbone written: {DEST}")
 

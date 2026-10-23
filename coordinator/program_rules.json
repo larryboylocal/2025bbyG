@@ -1,0 +1,62 @@
+{
+  "as_of": "2026-09-30",
+  "source": "Kraken Prop Evaluation rules",
+  "modes": ["live", "propfirm"],
+  "demo_rejected": true,
+  "order_sent_by_coordinator": false,
+  "daily_loss_pct": 3.0,
+  "daily_balance_clock_utc": "00:30",
+  "daily_balance_excludes_open_positions": true,
+  "static_drawdown": true,
+  "fees": {
+    "per_side": 0.0004,
+    "swap_daily": 0.00033,
+    "swap_charges_per_day": 6,
+    "swap_interval_hours": 4
+  },
+  "leverage": {
+    "BTC": 10,
+    "NQ": 10,
+    "SPX": 10,
+    "ETH": 5,
+    "other_min": 2,
+    "other_max": 5
+  },
+  "combined_active_cap": 200000,
+  "partial_take_profit": false,
+  "confidence_min": 0.85,
+  "plans": {
+    "starter": {
+      "static_dd_pct": 6,
+      "sizes": {
+        "5000": {"upgrade_target": 500, "max_drawdown": 300},
+        "10000": {"upgrade_target": 1000, "max_drawdown": 600},
+        "25000": {"upgrade_target": 2500, "max_drawdown": 1500},
+        "50000": {"upgrade_target": 5000, "max_drawdown": 3000},
+        "100000": {"upgrade_target": 10000, "max_drawdown": 6000}
+      }
+    },
+    "intermediate": {
+      "static_dd_pct": 5,
+      "sizes": {
+        "5000": {"upgrade_target": 600, "max_drawdown": 250},
+        "10000": {"upgrade_target": 1200, "max_drawdown": 500},
+        "25000": {"upgrade_target": 3000, "max_drawdown": 1250},
+        "50000": {"upgrade_target": 6000, "max_drawdown": 2500},
+        "100000": {"upgrade_target": 12000, "max_drawdown": 5000},
+        "200000": {"upgrade_target": 24000, "max_drawdown": 10000}
+      }
+    },
+    "advanced": {
+      "static_dd_pct": 3,
+      "sizes": {
+        "5000": {"upgrade_target": 450, "max_drawdown": 150},
+        "10000": {"upgrade_target": 900, "max_drawdown": 300},
+        "25000": {"upgrade_target": 2250, "max_drawdown": 750},
+        "50000": {"upgrade_target": 4500, "max_drawdown": 1500},
+        "100000": {"upgrade_target": 9000, "max_drawdown": 3000},
+        "200000": {"upgrade_target": 18000, "max_drawdown": 6000}
+      }
+    }
+  }
+}

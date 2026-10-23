@@ -1,6 +1,6 @@
 # FXJEFE SaturnSyncAmen — Kraken futures runtime
 
-Three terminals. Three runtimes. Kraken is the only one allowed to send live orders.
+Modes are live Kraken futures and Kraken Prop. Demo is not a mode. Kraken is the only terminal allowed to send live orders, and it still sends nothing until an API key is present. Prop risk uses the 30 September 2026 Starter, Intermediate, and Advanced floors in `coordinator/program_rules.json`. The plan is not guessed.
 
 | Terminal | Class | Runtime | Live orders |
 |---|---|---|---|

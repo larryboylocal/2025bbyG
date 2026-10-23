@@ -6,6 +6,13 @@
   "live_trading": true,
   "paper_fills": false,
   "environment": "live",
+  "modes": ["live", "propfirm"],
+  "demo": false,
+  "propfirm": {
+    "rules": "coordinator/program_rules.json",
+    "as_of": "2026-09-30",
+    "plan": null
+  },
   "rest_base": "https://futures.kraken.com",
   "websocket_url": "wss://futures.kraken.com/ws/v1",
   "runtime_host": "127.0.0.1",
