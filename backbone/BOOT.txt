@@ -13,6 +13,10 @@ Install so it returns on boot:
 
   sudo ./install-boot.sh
 
+The first run installs the unit and starts it. A later run is an update:
+it keeps kraken.env, swaps in the new tree, and reboots the machine.
+The runtime that comes back is the updated backbone.
+
 The unit runs:
 
   /opt/fxjefe-backbone/.venv/bin/python -m terminals.kraken.kraken_runtime

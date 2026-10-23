@@ -70,3 +70,5 @@ sudo backbone/install-boot.sh
 ```
 
 `install-boot.sh` copies the backbone to `/opt/fxjefe-backbone` when it can, installs the wheels into a venv there, and installs a systemd unit so the Kraken runtime comes back on boot. Without root it installs a user unit or an `@reboot` crontab. Binance and MetaTrader 5 are not started.
+
+The first run starts the service. Running it again is an update: the self-check has to pass, `kraken.env` is kept, the previous tree is moved aside, and the machine reboots onto the new copy. A failed self-check leaves the installed runtime where it is.
